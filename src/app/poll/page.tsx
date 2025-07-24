@@ -70,13 +70,6 @@ const LivePollResults = () => {
             <div className="fixed bottom-24 right-4 w-96 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden z-50">
               <div className="border-b border-gray-100">
                 <div className="flex">
-                  <button
-                    onClick={() => setShowParticipants(false)}
-                    className="flex-1 px-6 py-4 text-gray-500 hover:text-gray-700 transition-colors duration-200"
-                  >
-                    <MessageCircle size={20} className="inline mr-2" />
-                    Chat
-                  </button>
                   <button className="flex-1 px-6 py-4 text-purple-600 border-b-2 border-purple-600 font-medium">
                     <Users size={20} className="inline mr-2" />
                     Participants
