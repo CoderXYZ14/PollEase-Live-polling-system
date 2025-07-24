@@ -1,103 +1,122 @@
-import Image from "next/image";
+"use client";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function Home() {
+const LivePollingSystem = () => {
+  const [selectedRole, setSelectedRole] = useState<
+    "student" | "teacher" | null
+  >(null);
+  const router = useRouter();
+
+  const handleRoleSelect = (role: "student" | "teacher") => {
+    setSelectedRole(role);
+  };
+
+  const handleContinue = () => {
+    if (selectedRole === "student") {
+      router.push("/student");
+    } else if (selectedRole === "teacher") {
+      router.push("/teacher");
+    }
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+      <div className="w-full max-w-2xl mx-auto text-center">
+        {/* Intervue Poll Badge */}
+        <div className="inline-flex items-center justify-center mb-8">
+          <div
+            className="px-6 py-2 rounded-full text-white font-medium text-sm"
+            style={{
+              background: "linear-gradient(135deg, #7565D9 0%, #4D0ACD 100%)",
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            ✨ Intervue Poll
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* Main Heading */}
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 mb-4">
+          Welcome to the <span className="font-bold">Live Polling System</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-gray-500 text-base md:text-lg mb-12 max-w-xl mx-auto leading-relaxed">
+          Please select the role that best describes you to begin using the live
+          polling system
+        </p>
+
+        {/* Role Selection Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
+          {/* Student Card */}
+          <div
+            onClick={() => handleRoleSelect("student")}
+            className={`p-6 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
+              selectedRole === "student"
+                ? "border-transparent bg-gradient-to-r from-[#7765DA] to-[#1D68BD] bg-clip-border"
+                : "border-gray-200 hover:border-gray-300"
+            }`}
+            style={
+              selectedRole === "student"
+                ? {
+                    background:
+                      "linear-gradient(white, white) padding-box, linear-gradient(135deg, #7765DA, #1D68BD) border-box",
+                    border: "2px solid transparent",
+                  }
+                : {}
+            }
+          >
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              I'm a Student
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry
+            </p>
+          </div>
+
+          {/* Teacher Card */}
+          <div
+            onClick={() => handleRoleSelect("teacher")}
+            className={`p-6 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
+              selectedRole === "teacher"
+                ? "border-transparent bg-gradient-to-r from-[#7765DA] to-[#1D68BD] bg-clip-border"
+                : "border-gray-200 hover:border-gray-300"
+            }`}
+            style={
+              selectedRole === "teacher"
+                ? {
+                    background:
+                      "linear-gradient(white, white) padding-box, linear-gradient(135deg, #7765DA, #1D68BD) border-box",
+                    border: "2px solid transparent",
+                  }
+                : {}
+            }
+          >
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              I'm a Teacher
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Submit answers and view live poll results in real-time.
+            </p>
+          </div>
+        </div>
+
+        {/* Continue Button */}
+        <button
+          onClick={handleContinue}
+          disabled={!selectedRole}
+          className={`px-12 py-4 rounded-full text-white font-medium text-lg transition-all duration-200 bg-linear-to-r from-[#7765DA] to-[#8F64E1] ${
+            selectedRole
+              ? "cursor-pointer hover:shadow-lg transform hover:scale-105"
+              : " cursor-not-allowed"
+          }`}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Continue
+        </button>
+      </div>
     </div>
   );
-}
+};
+
+export default LivePollingSystem;
