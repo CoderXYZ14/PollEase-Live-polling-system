@@ -23,7 +23,6 @@ const LivePollingSystem = () => {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl mx-auto text-center">
-        {/* Intervue Poll Badge */}
         <div className="inline-flex items-center justify-center mb-8">
           <div
             className="px-6 py-2 rounded-full text-white font-medium text-sm"
@@ -35,20 +34,16 @@ const LivePollingSystem = () => {
           </div>
         </div>
 
-        {/* Main Heading */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 mb-4">
           Welcome to the <span className="font-bold">Live Polling System</span>
         </h1>
 
-        {/* Subtitle */}
         <p className="text-gray-500 text-base md:text-lg mb-12 max-w-xl mx-auto leading-relaxed">
           Please select the role that best describes you to begin using the live
           polling system
         </p>
 
-        {/* Role Selection Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
-          {/* Student Card */}
           <div
             onClick={() => handleRoleSelect("student")}
             className={`p-6 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
@@ -75,7 +70,6 @@ const LivePollingSystem = () => {
             </p>
           </div>
 
-          {/* Teacher Card */}
           <div
             onClick={() => handleRoleSelect("teacher")}
             className={`p-6 border-2 rounded-xl cursor-pointer transition-all duration-200 ${
@@ -102,7 +96,6 @@ const LivePollingSystem = () => {
           </div>
         </div>
 
-        {/* Continue Button */}
         <button
           onClick={handleContinue}
           disabled={!selectedRole}
