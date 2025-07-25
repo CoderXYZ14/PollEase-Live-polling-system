@@ -242,12 +242,12 @@ const TeacherPage = () => {
                           <span className="text-black font-medium relative z-10">
                             {result.option}
                           </span>
+                          <div className="absolute right-4">
+                            <span className="text-lg font-semibold text-gray-900">
+                              {result.percentage}%
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                      <div className="pr-4">
-                        <span className="text-lg font-semibold text-gray-900">
-                          {result.percentage}%
-                        </span>
                       </div>
                     </div>
                   </div>
@@ -352,8 +352,8 @@ const TeacherPage = () => {
           </h1>
 
           <p className="text-gray-600 text-base md:text-lg max-w-3xl leading-relaxed">
-            you&apos;ll have the ability to create and manage polls, ask
-            questions, and monitor your students&apos; responses in real-time.
+            you'll have the ability to create and manage polls, ask questions,
+            and monitor your students' responses in real-time.
           </p>
         </div>
 
