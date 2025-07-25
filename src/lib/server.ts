@@ -11,7 +11,7 @@ app.use(express.json());
 
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: process.env.NEXTAUTH_URI || "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 });
