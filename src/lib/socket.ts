@@ -221,7 +221,7 @@ export const useStudent = (studentName: string) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3001");
+    const newSocket = io(SOCKET_URL);
     setSocket(newSocket);
 
     newSocket.on("connect", () => {
