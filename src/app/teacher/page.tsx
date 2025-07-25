@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import { useTeacher } from "@/lib/socket";
 import { Eye, MessageCircle, Users } from "lucide-react";
-import Link from "next/link";
 
 const TeacherPage = () => {
   const [question, setQuestion] = useState("");
@@ -19,13 +18,12 @@ const TeacherPage = () => {
     pollResults,
     studentsCount,
     studentsList,
-    pastPolls,
-    chatMessages,
+
     error,
     createPoll,
-    sendMessage,
+
     kickStudent,
-    getPastPolls,
+
     clearError,
   } = useTeacher();
 
@@ -96,10 +94,6 @@ const TeacherPage = () => {
   const handleViewPollHistory = () => {
     console.log("View poll history clicked");
     // Could implement past polls view here
-  };
-
-  const handleKickOut = (participantId: string) => {
-    kickStudent(participantId);
   };
 
   const isFormValid =
@@ -354,12 +348,12 @@ const TeacherPage = () => {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-            Let's Get Started
+            Let&apos;s Get Started
           </h1>
 
           <p className="text-gray-600 text-base md:text-lg max-w-3xl leading-relaxed">
-            you'll have the ability to create and manage polls, ask questions,
-            and monitor your students' responses in real-time.
+            you&apos;ll have the ability to create and manage polls, ask
+            questions, and monitor your students&apos; responses in real-time.
           </p>
         </div>
 

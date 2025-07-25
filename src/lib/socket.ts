@@ -234,7 +234,7 @@ export const useStudent = (studentName: string) => {
       setIsConnected(false);
     });
 
-    newSocket.on("student-joined", (data: any) => {
+    newSocket.on("student-joined", (data: StudentData) => {
       console.log("Joined as student:", data);
     });
 

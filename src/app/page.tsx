@@ -62,7 +62,7 @@ const LivePollingSystem = () => {
             }
           >
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              I'm a Student
+              I&apos;m a Student
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -88,7 +88,7 @@ const LivePollingSystem = () => {
             }
           >
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
-              I'm a Teacher
+              I&apos;m a Teacher
             </h3>
             <p className="text-gray-600 text-sm leading-relaxed">
               Submit answers and view live poll results in real-time.

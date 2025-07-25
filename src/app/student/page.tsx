@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { useStudent } from "@/lib/socket";
-import Link from "next/link";
 import KickedOutPage from "@/components/KickedOutPage";
 import WaitingPage from "@/components/WaitingPage";
 
@@ -19,21 +18,20 @@ const StudentPage = () => {
   const [timeLeft, setTimeLeft] = useState("00:15");
   const [pollQuestion, setPollQuestion] = useState("");
   const [pollOptions, setPollOptions] = useState<PollOption[]>([]);
-  const [showResults, setShowResults] = useState(false);
 
   // Socket functionality
   const {
     isConnected,
     currentPoll,
-    pollResults,
+
     timeRemaining,
     hasAnswered,
     answerResult,
     isKicked,
-    chatMessages,
+
     error,
     submitAnswer,
-    sendMessage,
+
     clearError,
   } = useStudent(name);
 
@@ -56,17 +54,8 @@ const StudentPage = () => {
           text: option,
         }))
       );
-      // setHasAnswered(currentPoll.hasAnswered || false); // This is now handled by the hook
-      setShowResults(false);
     }
   }, [currentPoll]);
-
-  // Update results when socket receives poll results
-  useEffect(() => {
-    if (pollResults) {
-      setShowResults(true);
-    }
-  }, [pollResults]);
 
   // Update time remaining
   useEffect(() => {
@@ -131,12 +120,12 @@ const StudentPage = () => {
           </div>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
-            <span className="font-normal">Let's</span> Get Started
+            <span className="font-normal">Let&apos;s</span> Get Started
           </h1>
 
           {/* Description */}
           <p className="text-gray-600 text-base md:text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-            If you're a student, you'll be able to{" "}
+            If you&apos;re a student, you&apos;ll be able to{" "}
             <span className="font-semibold text-gray-900">
               submit your answers
             </span>

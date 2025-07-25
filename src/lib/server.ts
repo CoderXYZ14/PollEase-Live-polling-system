@@ -58,10 +58,19 @@ interface ChatMessage {
   isTeacher: boolean;
 }
 
-// In-memory storage (replace with MongoDB in production)
+// In-memory storage (replace with MongoDB in   production)
 let currentPoll: Poll | null = null;
-let students = new Map<string, StudentData>(); // studentId -> studentData
-let responses = new Map<string, Map<string, any>>(); // pollId -> Map(studentId -> response)
+const students = new Map<string, StudentData>(); // studentId -> studentData
+const responses = new Map<
+  string,
+  Map<
+    string,
+    {
+      optionIndex: number;
+      submittedAt: Date;
+    }
+  >
+>(); // pollId -> Map(studentId -> response)
 let pastPolls: PastPoll[] = []; // Array of completed polls with results
 let chatMessages: ChatMessage[] = []; // Array of chat messages
 let pollTimer: NodeJS.Timeout | null = null; // Store timer reference
@@ -484,7 +493,13 @@ function endPoll(): void {
 
 function calculateResults(
   poll: Poll,
-  pollResponses: Map<string, any>
+  pollResponses: Map<
+    string,
+    {
+      optionIndex: number;
+      submittedAt: Date;
+    }
+  >
 ): PollResults {
   const results = poll.options.map((option, index) => {
     const count = Array.from(pollResponses.values()).filter(

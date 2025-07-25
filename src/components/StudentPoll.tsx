@@ -110,7 +110,7 @@ export default function StudentPoll({
         ) : (
           <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
             <p className="text-red-800 text-center">
-              ⏰ Time's up! You can no longer submit an answer.
+              ⏰ Time&apos;s up! You can no longer submit an answer.
             </p>
           </div>
         )}

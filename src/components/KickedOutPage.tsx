@@ -16,7 +16,7 @@ const KickedOutPage = () => {
         </div>
 
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal text-gray-900 mb-4">
-          You've been <span className="font-bold">Kicked out !</span>
+          You&apos;ve been <span className="font-bold">Kicked out !</span>
         </h1>
 
         <p className="text-gray-500 text-base md:text-lg mb-12 max-w-xl mx-auto leading-relaxed">
